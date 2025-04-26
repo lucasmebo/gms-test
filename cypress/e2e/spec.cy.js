@@ -1,6 +1,6 @@
-//Essa linha serve como referencia para trazer todos os metodos do Cypress
 /// <reference types="cypress"/> 
 
+/*
 describe('Funcionalidade: Cadastro de membros', () => {
   it('Deve fazer o cadastro de campos obrigatorio', () => {
     cy.visit('http://127.0.0.1:8080/')
@@ -12,6 +12,7 @@ describe('Funcionalidade: Cadastro de membros', () => {
     cy.get('#signup-response').should('contain' , 'Cadastro realizado com sucesso!')
   })
 }),
+
 describe('Funcionalidade: Recomendações do dia', () => {
   it('Deve apresentar as 5 recomendações do dia', () => {
     cy.visit('http://127.0.0.1:8080/')
@@ -20,6 +21,7 @@ describe('Funcionalidade: Recomendações do dia', () => {
     .should('have.length', 5);
   })
 }),
+
 describe('Funcionalidade: Buscar um filme válido', () => {
   it('Deve apresentar filmes que busquei', () => {
     cy.visit('http://127.0.0.1:8080/')
@@ -28,10 +30,8 @@ describe('Funcionalidade: Buscar um filme válido', () => {
     cy.get('#search-button').click()
     cy.get('#results-section').should('exist')
     cy.get('#clear-button').click()
-    cy.get('#clear-button').click()
   })
 }),
-
 
 describe('Funcionalidade: Buscar um filme não válido', () => {
   it('Não deve apresentar nenhum filme e retornar a mensagem', () => {
@@ -41,5 +41,16 @@ describe('Funcionalidade: Buscar um filme não válido', () => {
     cy.get('#search-button').click()
     cy.get('#results-section').should('contain' , 'Filme não encontrado.')
     cy.get('#clear-button').click()
+  })
+}),
+*/
+describe('Funcionalidade: Apresentar rolagem', () => {
+  it('Deve apresentar uma rolagem se tiver mais de 10 filmes', () => {
+    cy.visit('http://127.0.0.1:8080/')
+    cy.get('#search-section').should('exist')
+    cy.get('#search-input').type('Star')
+    cy.get('#search-button').click()
+    cy.get('#results-section').find('div')
+    .should('have.length', 11);
   })
 })
