@@ -4,7 +4,11 @@
 describe('Funcionalidade: Recomendações do dia', () => {
   beforeEach(() => {
     cy.visit('/')
-  })
+  });
+  afterEach(() => {
+    cy.screenshot()
+  });
+  
   it('Deve apresentar as 5 recomendações do dia', () => {
     cy.get('#recommendations-section').should('exist')
     cy.get('#recommendations').find('div')

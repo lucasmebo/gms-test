@@ -4,6 +4,9 @@ describe('Funcionalidade: Buscar filmes válidos', () => {
   beforeEach(() =>{
     cy.visit('/')
   });
+  afterEach(() => {
+    cy.screenshot()
+  });
 
   it('Deve apresentar filme que o usuário buscou', () => {
     cy.fixture('filmes').then((filmes) => {
